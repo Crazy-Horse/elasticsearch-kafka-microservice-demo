@@ -1,0 +1,126 @@
+2023-11-22 09:47:50 [main] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Cannot decrypt: key=spring.security.user.password
+	at org.springframework.cloud.bootstrap.encrypt.AbstractEnvironmentDecrypt.decrypt(AbstractEnvironmentDecrypt.java:158)
+	at org.springframework.cloud.bootstrap.encrypt.AbstractEnvironmentDecrypt.lambda$decrypt$0(AbstractEnvironmentDecrypt.java:136)
+	at java.base/java.util.LinkedHashMap.replaceAll(LinkedHashMap.java:731)
+	at org.springframework.cloud.bootstrap.encrypt.AbstractEnvironmentDecrypt.decrypt(AbstractEnvironmentDecrypt.java:131)
+	at org.springframework.cloud.bootstrap.encrypt.AbstractEnvironmentDecrypt.decrypt(AbstractEnvironmentDecrypt.java:70)
+	at org.springframework.cloud.bootstrap.encrypt.TextEncryptorUtils.decrypt(TextEncryptorUtils.java:52)
+	at org.springframework.cloud.bootstrap.encrypt.DecryptEnvironmentPostProcessor.postProcessEnvironment(DecryptEnvironmentPostProcessor.java:66)
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEnvironmentPreparedEvent(EnvironmentPostProcessorApplicationListener.java:109)
+	at org.springframework.boot.env.EnvironmentPostProcessorApplicationListener.onApplicationEvent(EnvironmentPostProcessorApplicationListener.java:94)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:174)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:167)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:145)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:133)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.microservices.demo.config.server.ConfigServer.main(ConfigServer.java:12)
+Caused by: java.lang.UnsupportedOperationException: No decryption for FailsafeTextEncryptor. Did you configure the keystore correctly?
+	at org.springframework.cloud.bootstrap.encrypt.TextEncryptorUtils$FailsafeTextEncryptor.decrypt(TextEncryptorUtils.java:188)
+	at org.springframework.cloud.bootstrap.encrypt.AbstractEnvironmentDecrypt.decrypt(AbstractEnvironmentDecrypt.java:143)
+	... 24 common frames omitted
+2023-11-22 09:48:59 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2023-11-22 09:48:59 [main] INFO  c.m.demo.config.server.ConfigServer - Starting ConfigServer using Java 17.0.8 with PID 9945 (/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server/target/classes started by stuholland in /Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices)
+2023-11-22 09:48:59 [main] INFO  c.m.demo.config.server.ConfigServer - No active profile set, falling back to 1 default profile: "default"
+2023-11-22 09:49:00 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=7b13744b-9474-3eda-bb04-1c605f85cff9
+2023-11-22 09:49:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2023-11-22 09:49:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2023-11-22 09:49:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-11-22 09:49:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-11-22 09:49:00 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-11-22 09:49:00 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 606 ms
+2023-11-22 09:49:00 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 73520f41-e6ed-4891-ad7b-d2e76faaaf30
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-11-22 09:49:00 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@63485d7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23ea8830, org.springframework.security.web.context.SecurityContextHolderFilter@29dcdd1c, org.springframework.security.web.header.HeaderWriterFilter@72fb989b, org.springframework.security.web.csrf.CsrfFilter@12cd129c, org.springframework.security.web.authentication.logout.LogoutFilter@5546e754, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3babcaed, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@919086, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@59a09be, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6b09ce57, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@524f5ea5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5599b5bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@790ac3e0, org.springframework.security.web.access.ExceptionTranslationFilter@51d8f2f2, org.springframework.security.web.access.intercept.AuthorizationFilter@650a1aff]
+2023-11-22 09:49:00 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Mvc [pattern='/actuator/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-11-22 09:49:00 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Mvc [pattern='/actuator/**']
+2023-11-22 09:49:00 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Mvc [pattern='/encrypt/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-11-22 09:49:00 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Mvc [pattern='/encrypt/**']
+2023-11-22 09:49:00 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Mvc [pattern='/decrypt/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-11-22 09:49:00 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Mvc [pattern='/decrypt/**']
+2023-11-22 09:49:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2023-11-22 09:49:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2023-11-22 09:49:00 [main] INFO  c.m.demo.config.server.ConfigServer - Started ConfigServer in 1.272 seconds (process running for 1.689)
+2023-11-22 09:52:10 [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-22 09:52:10 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-11-22 09:52:10 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2023-11-22 10:10:28 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2023-11-22 10:10:28 [main] INFO  c.m.demo.config.server.ConfigServer - Starting ConfigServer using Java 17.0.8 with PID 12929 (/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server/target/classes started by stuholland in /Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices)
+2023-11-22 10:10:28 [main] INFO  c.m.demo.config.server.ConfigServer - No active profile set, falling back to 1 default profile: "default"
+2023-11-22 10:10:29 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=7b13744b-9474-3eda-bb04-1c605f85cff9
+2023-11-22 10:10:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2023-11-22 10:10:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2023-11-22 10:10:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-11-22 10:10:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-11-22 10:10:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-11-22 10:10:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 601 ms
+2023-11-22 10:10:29 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c4f4330, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b9aeedb, org.springframework.security.web.context.SecurityContextHolderFilter@4f235e8e, org.springframework.security.web.header.HeaderWriterFilter@51d8f2f2, org.springframework.security.web.csrf.CsrfFilter@54a056e4, org.springframework.security.web.authentication.logout.LogoutFilter@40c76f5a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@50dc49e1, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@647fb583, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@63485d7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5a85b4e6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29dcdd1c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@17134190, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23ea8830, org.springframework.security.web.access.ExceptionTranslationFilter@3b3056a6, org.springframework.security.web.access.intercept.AuthorizationFilter@44aa91e2]
+2023-11-22 10:10:29 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Mvc [pattern='/actuator/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-11-22 10:10:29 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Mvc [pattern='/actuator/**']
+2023-11-22 10:10:29 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Mvc [pattern='/encrypt/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-11-22 10:10:29 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Mvc [pattern='/encrypt/**']
+2023-11-22 10:10:29 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Mvc [pattern='/decrypt/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-11-22 10:10:29 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Mvc [pattern='/decrypt/**']
+2023-11-22 10:10:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2023-11-22 10:10:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2023-11-22 10:10:29 [main] INFO  c.m.demo.config.server.ConfigServer - Started ConfigServer in 1.307 seconds (process running for 1.715)
+2023-11-22 10:10:38 [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-22 10:10:38 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-11-22 10:10:38 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-11-22 10:10:41 [http-nio-8888-exec-1] WARN  o.s.c.c.s.e.MultipleJGitEnvironmentRepository - Could not merge remote for main remote: null
+2023-11-22 10:10:41 [http-nio-8888-exec-1] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:10:42 [http-nio-8888-exec-2] WARN  o.s.c.c.s.e.MultipleJGitEnvironmentRepository - Could not merge remote for main remote: null
+2023-11-22 10:10:42 [http-nio-8888-exec-2] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client-twitter_to_kafka.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:10:42 [http-nio-8888-exec-2] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:16:49 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2023-11-22 10:16:49 [main] INFO  c.m.demo.config.server.ConfigServer - Starting ConfigServer using Java 17.0.8 with PID 13331 (/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server/target/classes started by stuholland in /Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices)
+2023-11-22 10:16:49 [main] INFO  c.m.demo.config.server.ConfigServer - No active profile set, falling back to 1 default profile: "default"
+2023-11-22 10:16:49 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=7b13744b-9474-3eda-bb04-1c605f85cff9
+2023-11-22 10:16:49 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2023-11-22 10:16:49 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2023-11-22 10:16:49 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-11-22 10:16:49 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-11-22 10:16:49 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-11-22 10:16:49 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 586 ms
+2023-11-22 10:16:50 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a85b4e6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@766b6d02, org.springframework.security.web.context.SecurityContextHolderFilter@51d8f2f2, org.springframework.security.web.header.HeaderWriterFilter@4fbaa7f5, org.springframework.security.web.csrf.CsrfFilter@6704df84, org.springframework.security.web.authentication.logout.LogoutFilter@fe8aaeb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7f642bf, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5599b5bb, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6b09ce57, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@11c7a0b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72fb989b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7cdb7fc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c4f4330, org.springframework.security.web.access.ExceptionTranslationFilter@22ae905f, org.springframework.security.web.access.intercept.AuthorizationFilter@8f39224]
+2023-11-22 10:16:50 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Mvc [pattern='/actuator/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-11-22 10:16:50 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Mvc [pattern='/actuator/**']
+2023-11-22 10:16:50 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Mvc [pattern='/encrypt/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-11-22 10:16:50 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Mvc [pattern='/encrypt/**']
+2023-11-22 10:16:50 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Mvc [pattern='/decrypt/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2023-11-22 10:16:50 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Mvc [pattern='/decrypt/**']
+2023-11-22 10:16:50 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2023-11-22 10:16:50 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2023-11-22 10:16:50 [main] INFO  c.m.demo.config.server.ConfigServer - Started ConfigServer in 1.261 seconds (process running for 1.677)
+2023-11-22 10:16:59 [http-nio-8888-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-22 10:16:59 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-11-22 10:16:59 [http-nio-8888-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2023-11-22 10:17:00 [http-nio-8888-exec-1] WARN  o.s.c.c.s.e.MultipleJGitEnvironmentRepository - Could not merge remote for main remote: null
+2023-11-22 10:17:00 [http-nio-8888-exec-1] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:17:00 [http-nio-8888-exec-2] WARN  o.s.c.c.s.e.MultipleJGitEnvironmentRepository - Could not merge remote for main remote: null
+2023-11-22 10:17:00 [http-nio-8888-exec-2] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client-twitter_to_kafka.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:17:00 [http-nio-8888-exec-2] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:18:32 [http-nio-8888-exec-4] WARN  o.s.c.c.s.e.MultipleJGitEnvironmentRepository - Could not merge remote for main remote: null
+2023-11-22 10:18:32 [http-nio-8888-exec-4] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:18:32 [http-nio-8888-exec-5] WARN  o.s.c.c.s.e.MultipleJGitEnvironmentRepository - Could not merge remote for main remote: null
+2023-11-22 10:18:32 [http-nio-8888-exec-5] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client-twitter_to_kafka.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:18:32 [http-nio-8888-exec-5] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:29:59 [http-nio-8888-exec-7] WARN  o.s.c.c.s.e.MultipleJGitEnvironmentRepository - Could not merge remote for main remote: null
+2023-11-22 10:29:59 [http-nio-8888-exec-7] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:29:59 [http-nio-8888-exec-8] WARN  o.s.c.c.s.e.MultipleJGitEnvironmentRepository - Could not merge remote for main remote: null
+2023-11-22 10:29:59 [http-nio-8888-exec-8] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client-twitter_to_kafka.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
+2023-11-22 10:29:59 [http-nio-8888-exec-8] INFO  o.s.c.c.s.e.NativeEnvironmentRepository - Adding property source: Config resource 'file [/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/config-client.yml]' via location 'file:/Users/stuholland/Library/CloudStorage/OneDrive-Personal/Documents/Technical/Source/Java/elasticsearch-kafka-microservices/config-server-repository/'
