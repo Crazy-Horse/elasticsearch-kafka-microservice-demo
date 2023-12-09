@@ -27,10 +27,11 @@ replay_pid*
 
 ### Maven template
 target/
-config-server/target
+config-server/target/classes
 config-server/logs
 kafka/target
-twitter-to-kafka-service/logs
+twitter-to-kafka-service/target/classes
+twitter-to-kafka-service/logs/archive
 .idea/
 pom.xml.tag
 pom.xml.releaseBackup
